@@ -1,0 +1,3166 @@
+/* =====================================================
+   Gospel Reading Tracker
+   Version 1.0
+   Premium Dark Gold / Apple Inspired UI
+   File: style.css
+===================================================== */
+
+
+/* =====================================================
+   ROOT VARIABLES
+===================================================== */
+
+:root {
+    /* ========================= LIGHT MODE ========================= */
+    --background: #f5f7fb;
+    --background-image: url("2.png");
+    --surface: rgba(255, 255, 255, 0.65);
+    --surface-solid: #ffffff;
+    --border: rgba(255, 255, 255, 0.55);
+    --text: #f3dfad;
+    --secondary-text: #d6c28f;
+    --accent: #c9a227;
+    --accent-light: #f3dfad;
+    --accent-soft: rgba(201, 162, 39, 0.15);
+    --success: #34c759;
+    --danger: #ff3b30;
+    --shadow: 0 20px 45px rgba(0, 0, 0, 0.18);
+    --small-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    --radius-xl: 32px;
+    --radius-lg: 24px;
+    --radius-md: 18px;
+    --radius-sm: 14px;
+    --transition: .25s ease;
+}
+
+/* ========================= DARK MODE VARIABLES ========================= */
+body.dark {
+    --background: #000000;
+    --background-image: url("1.png");
+    --surface: rgba(18, 18, 18, 0.68);
+    --surface-solid: #121212;
+    --border: rgba(255, 255, 255, 0.10);
+    --text: #f3dfad;
+    --secondary-text: #d6c28f;
+    --accent: #d4af37;
+    --accent-light: #f5d98b;
+    --accent-soft: rgba(212, 175, 55, 0.18);
+    --success: #34c759;
+    --danger: #ff453a;
+    --shadow: 0 20px 50px rgba(0, 0, 0, 0.60);
+    --small-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
+}
+
+
+/* ========================= SYSTEM DARK MODE ========================= */
+
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+
+    margin:
+        0;
+
+    padding:
+        0;
+
+    box-sizing:
+        border-box;
+
+    -webkit-tap-highlight-color:
+        transparent;
+}
+
+
+/* =====================================================
+   HTML
+===================================================== */
+
+html {
+
+    scroll-behavior:
+        smooth;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body {
+    min-height: 100vh;
+    background-color: var(--background);
+    background-image: var(--background-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    padding: 16px;
+    overflow-x: hidden;
+}
+
+/* =========================
+   BACKGROUND IMAGE OVERLAY
+   ========================= */
+
+.background-blur {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -1;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.28),
+            rgba(0, 0, 0, 0.28));
+
+    backdrop-filter:
+        blur(1px);
+
+    -webkit-backdrop-filter:
+        blur(1px);
+
+    transition:
+        background 0.5s ease;
+
+}
+
+
+.background-blur::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(180deg,
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.68));
+
+    pointer-events:
+        none;
+
+    transition:
+        background 0.5s ease;
+
+}
+
+body.light-mode .background-blur {
+
+    background-image:
+        url("2.png");
+}
+
+
+/* =====================================================
+   APP CONTAINER
+===================================================== */
+
+.app-container {
+
+    width:
+        100%;
+
+    max-width:
+        900px;
+
+    margin:
+        auto;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        18px;
+}
+
+
+/* =====================================================
+   GLASS CARDS
+===================================================== */
+
+.glass-card {
+
+    position: relative;
+
+    width: 100%;
+
+    background:
+        rgba(15, 12, 9, 0.58);
+
+    border:
+        1px solid rgba(245, 220, 170, 0.16);
+
+    border-radius:
+        var(--radius-xl);
+
+    overflow:
+        hidden;
+
+    isolation:
+        isolate;
+
+    backdrop-filter:
+        blur(22px);
+
+    -webkit-backdrop-filter:
+        blur(22px);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.42);
+
+    padding:
+        22px;
+
+    animation:
+        fadeIn .4s ease;
+}
+
+
+/* Subtle gold reflection */
+
+.glass-card::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    border-radius:
+        inherit;
+
+    pointer-events:
+        none;
+
+    background:
+        linear-gradient(135deg,
+            rgba(255, 255, 255, 0.06),
+            transparent 40%,
+            rgba(214, 175, 85, 0.025));
+
+    z-index:
+        0;
+}
+
+.glass-card>* {
+
+    position:
+        relative;
+
+    z-index:
+        1;
+}
+
+
+/* =====================================================
+   ANIMATION
+===================================================== */
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(8px);
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.app-header {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+}
+
+
+.header-content {
+
+    position:
+        relative;
+
+    z-index:
+        1;
+}
+
+
+.header-content h1 {
+
+    font-size:
+        clamp(22px, 6vw, 34px);
+
+    letter-spacing:
+        -0.04em;
+
+    font-weight:
+        700;
+
+    color:
+        var(--accent-light);
+
+    text-shadow:
+        0 2px 18px rgba(214, 175, 85, 0.18);
+}
+
+
+.header-content p {
+
+    margin-top:
+        6px;
+
+    color:
+        var(--secondary-text);
+
+    font-size:
+        15px;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+button {
+
+    border:
+        none;
+
+    cursor:
+        pointer;
+
+    min-height:
+        48px;
+
+    border-radius:
+        999px;
+
+    padding:
+        0 20px;
+
+    font-size:
+        15px;
+
+    font-weight:
+        600;
+
+    transition:
+
+        transform var(--transition),
+
+        opacity var(--transition),
+
+        box-shadow var(--transition);
+}
+
+
+button:active {
+
+    transform:
+        scale(.96);
+}
+
+
+button:hover {
+
+    opacity:
+        .92;
+}
+
+
+/* =====================================================
+   ROUND THEME BUTTON
+===================================================== */
+
+.round-button {
+
+    width: 48px;
+
+    height: 48px;
+
+    padding: 0;
+
+    background:
+        var(--accent);
+
+    color:
+        #17110a;
+
+    font-size:
+        22px;
+
+    box-shadow:
+        0 8px 25px rgba(214, 168, 79, 0.25);
+}
+
+.round-button:hover {
+
+    box-shadow:
+        0 0 20px rgba(214, 175, 85, 0.18);
+}
+
+
+/* =====================================================
+   ACTION BUTTON
+===================================================== */
+
+.action-button {
+
+    background:
+        linear-gradient(135deg,
+            #d6a84f,
+            #b8862c);
+
+    color:
+        #17110a;
+
+    box-shadow:
+        0 8px 20px rgba(214, 168, 79, 0.20);
+}
+
+
+.action-button.secondary {
+
+    background:
+        rgba(128, 128, 128, .16);
+
+    color:
+        var(--text);
+
+    border:
+        1px solid rgba(214, 175, 85, 0.16);
+
+    box-shadow:
+        none;
+}
+
+
+/* =====================================================
+   TITLES
+===================================================== */
+
+.section-heading {
+
+    margin-bottom:
+        18px;
+
+    position:
+        relative;
+
+    z-index:
+        1;
+}
+
+
+.section-heading h2 {
+
+    font-size:
+        21px;
+
+    letter-spacing:
+        -.02em;
+
+    color:
+        var(--accent-light);
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.overall-progress {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        15px;
+
+    margin-bottom:
+        20px;
+}
+
+
+.progress-track {
+
+    flex:
+        1;
+
+    height:
+        14px;
+
+    background:
+        rgba(255, 255, 255, .10);
+
+    border:
+        1px solid rgba(214, 175, 85, .10);
+
+    border-radius:
+        999px;
+
+    overflow:
+        hidden;
+}
+
+
+.progress-value {
+
+    height: 100%;
+
+    width: 0;
+
+    border-radius:
+        inherit;
+
+    background:
+        linear-gradient(90deg,
+            #b8862c,
+            #f5d98b,
+            #d6a84f);
+
+    transition:
+        width .5s ease;
+}
+
+
+#overallPercent {
+
+    font-weight:
+        700;
+
+    color:
+        var(--accent-light);
+}
+
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+.dashboard-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        14px;
+}
+
+
+.stat-card {
+
+    background:
+        rgba(255, 255, 255, .055);
+
+    border:
+        1px solid rgba(214, 175, 85, .10);
+
+    border-radius:
+        var(--radius-md);
+
+    padding:
+        16px;
+
+    min-height:
+        90px;
+
+    position:
+        relative;
+
+    z-index:
+        1;
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+
+.stat-card:hover {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        rgba(214, 175, 85, .08);
+}
+
+
+.stat-card span {
+
+    display:
+        block;
+
+    color:
+        var(--secondary-text);
+
+    font-size:
+        13px;
+
+    margin-bottom:
+        8px;
+}
+
+
+.stat-card strong {
+
+    font-size:
+        18px;
+
+    color:
+        var(--accent-light);
+}
+
+
+.full-width {
+
+    grid-column:
+        1/-1;
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+.search-box {
+
+    width:
+        100%;
+
+    height:
+        54px;
+
+    border-radius:
+        var(--radius-md);
+
+    border:
+        1px solid rgba(214, 175, 85, .18);
+
+    background:
+        rgba(0, 0, 0, .20);
+
+    color:
+        var(--text);
+
+    padding:
+        0 18px;
+
+    font-size:
+        16px;
+
+    outline:
+        none;
+
+    position:
+        relative;
+
+    z-index:
+        1;
+}
+
+
+.search-box::placeholder {
+
+    color:
+        rgba(199, 185, 143, .65);
+}
+
+
+.search-box:focus {
+
+    border-color:
+        var(--accent);
+
+    box-shadow:
+        0 0 0 3px rgba(214, 175, 85, .10);
+}
+
+
+/* =====================================================
+   STATISTICS
+===================================================== */
+
+.statistics-container {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        14px;
+}
+
+
+.statistics-card {
+
+    background:
+        rgba(255, 255, 255, .055);
+
+    border:
+        1px solid rgba(214, 175, 85, .10);
+
+    padding:
+        16px;
+
+    border-radius:
+        var(--radius-md);
+}
+
+
+.statistics-card strong {
+
+    color:
+        var(--accent-light);
+}
+
+
+.statistics-card p {
+
+    color:
+        var(--secondary-text);
+
+    margin:
+        6px 0 12px;
+}
+
+
+/* =====================================================
+   READING LIST
+===================================================== */
+
+.reading-list {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        15px;
+}
+
+
+.book-card {
+
+    background:
+        rgba(255, 255, 255, .055);
+
+    border:
+        1px solid rgba(214, 175, 85, .10);
+
+    padding:
+        18px;
+
+    border-radius:
+        var(--radius-lg);
+}
+
+
+.book-card h3 {
+
+    color:
+        var(--accent-light);
+
+    margin-bottom:
+        12px;
+
+    font-size:
+        20px;
+}
+
+
+/* =====================================================
+   CHAPTER CARD
+===================================================== */
+
+.chapter-card {
+
+    margin-top:
+        10px;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    padding:
+        15px;
+
+    border-radius:
+        var(--radius-sm);
+
+    background:
+        rgba(0, 0, 0, .18);
+
+    border:
+        1px solid rgba(214, 175, 85, .08);
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        border-color .2s ease;
+}
+
+
+.chapter-card:hover {
+
+    transform:
+        translateX(2px);
+
+    background:
+        rgba(214, 175, 85, .07);
+
+    border-color:
+        rgba(214, 175, 85, .20);
+}
+
+
+.chapter-card strong {
+
+    color:
+        var(--text);
+}
+
+
+.chapter-card small {
+
+    color:
+        var(--secondary-text);
+}
+
+
+.chapter-card input {
+
+    width:
+        24px;
+
+    height:
+        24px;
+
+    accent-color:
+        var(--accent);
+
+    cursor:
+        pointer;
+}
+
+
+/* Completed chapter */
+
+.chapter-card.completed {
+
+    border-color:
+        rgba(214, 175, 85, .20);
+
+    background:
+        rgba(214, 175, 85, .075);
+}
+
+
+.chapter-card.completed strong {
+
+    color:
+        var(--accent-light);
+}
+
+
+/* =====================================================
+   BACKUP
+===================================================== */
+
+.backup-actions {
+
+    display:
+        flex;
+
+    gap:
+        12px;
+
+    flex-wrap:
+        wrap;
+
+    position:
+        relative;
+
+    z-index:
+        1;
+}
+
+
+/* =====================================================
+   COMPLETION SCREEN
+===================================================== */
+
+.completion-overlay {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    display:
+        none;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        rgba(0, 0, 0, .60);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    z-index:
+        999;
+
+    padding:
+        20px;
+}
+
+
+.completion-card {
+
+    width:
+        100%;
+
+    max-width:
+        420px;
+
+    text-align:
+        center;
+
+    padding:
+        35px 25px;
+
+    border-radius:
+        32px;
+
+    background:
+        rgba(20, 18, 15, .88);
+
+    border:
+        1px solid rgba(214, 175, 85, .25);
+
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, .55);
+
+    position:
+        relative;
+}
+
+
+.completion-card h1 {
+
+    margin-bottom:
+        15px;
+
+    color:
+        var(--accent-light);
+}
+
+
+.completion-card p {
+
+    color:
+        var(--secondary-text);
+
+    margin-bottom:
+        25px;
+}
+
+
+#confettiCanvas {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    pointer-events:
+        none;
+}
+
+
+/* =====================================================
+   CHAPTER DETAILS MODAL
+===================================================== */
+
+.chapter-modal {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    display:
+        none;
+
+    align-items:
+        flex-end;
+
+    justify-content:
+        center;
+
+    background:
+        rgba(0, 0, 0, 0.60);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    z-index:
+        1000;
+
+    padding:
+        16px;
+}
+
+
+.chapter-modal.active {
+
+    display:
+        flex;
+
+    animation:
+        modalFadeIn .25s ease;
+}
+
+
+@keyframes modalFadeIn {
+
+    from {
+
+        opacity:
+            0;
+    }
+
+    to {
+
+        opacity:
+            1;
+    }
+}
+
+
+/* =====================================================
+   MODAL CARD
+===================================================== */
+
+.chapter-modal-card {
+
+    width:
+        100%;
+
+    max-width:
+        520px;
+
+    background:
+        rgba(20, 18, 15, .88);
+
+    border:
+        1px solid rgba(214, 175, 85, .20);
+
+    backdrop-filter:
+        blur(30px);
+
+    -webkit-backdrop-filter:
+        blur(30px);
+
+    border-radius:
+        32px 32px 20px 20px;
+
+    padding:
+        26px;
+
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, .55);
+
+    position:
+        relative;
+
+    animation:
+        slideUp .35s ease;
+}
+
+
+@keyframes slideUp {
+
+    from {
+
+        transform:
+            translateY(80px);
+    }
+
+    to {
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =====================================================
+   CLOSE BUTTON
+===================================================== */
+
+.close-modal {
+
+    position:
+        absolute;
+
+    right:
+        18px;
+
+    top:
+        18px;
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    padding:
+        0;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(214, 175, 85, .12);
+
+    color:
+        var(--accent-light);
+
+    border:
+        1px solid rgba(214, 175, 85, .18);
+
+    font-size:
+        18px;
+}
+
+
+/* =====================================================
+   MODAL TITLE
+===================================================== */
+
+.chapter-modal-card h2 {
+
+    font-size:
+        24px;
+
+    margin-bottom:
+        10px;
+
+    letter-spacing:
+        -.03em;
+
+    color:
+        var(--accent-light);
+}
+
+
+#chapterCompletionStatus {
+
+    color:
+        var(--secondary-text);
+
+    margin-bottom:
+        22px;
+
+    font-size:
+        14px;
+}
+
+
+/* =====================================================
+   FORM LABELS
+===================================================== */
+
+.chapter-modal-card label {
+
+    display:
+        block;
+
+    margin-top:
+        18px;
+
+    margin-bottom:
+        8px;
+
+    font-size:
+        14px;
+
+    font-weight:
+        600;
+
+    color:
+        var(--accent-light);
+}
+
+
+/* =====================================================
+   FAVORITE VERSE INPUT
+===================================================== */
+
+.chapter-input {
+
+    width:
+        100%;
+
+    height:
+        52px;
+
+    border-radius:
+        16px;
+
+    border:
+        1px solid rgba(214, 175, 85, .18);
+
+    background:
+        rgba(0, 0, 0, .20);
+
+    color:
+        var(--text);
+
+    padding:
+        0 16px;
+
+    font-size:
+        16px;
+
+    outline:
+        none;
+}
+
+
+.chapter-input::placeholder {
+
+    color:
+        rgba(199, 185, 143, .60);
+}
+
+
+.chapter-input:focus {
+
+    border-color:
+        var(--accent);
+
+    box-shadow:
+        0 0 0 3px rgba(214, 175, 85, .10);
+}
+
+
+/* =====================================================
+   NOTES AREA
+===================================================== */
+
+.chapter-notes {
+
+    width:
+        100%;
+
+    resize:
+        none;
+
+    border-radius:
+        18px;
+
+    border:
+        1px solid rgba(214, 175, 85, .18);
+
+    background:
+        rgba(0, 0, 0, .20);
+
+    color:
+        var(--text);
+
+    padding:
+        16px;
+
+    font-size:
+        16px;
+
+    line-height:
+        1.5;
+
+    outline:
+        none;
+}
+
+
+.chapter-notes::placeholder {
+
+    color:
+        rgba(199, 185, 143, .60);
+}
+
+
+.chapter-notes:focus {
+
+    border-color:
+        var(--accent);
+
+    box-shadow:
+        0 0 0 3px rgba(214, 175, 85, .10);
+}
+
+
+/* =====================================================
+   SAVE BUTTON
+===================================================== */
+
+#saveChapterDetails {
+
+    width:
+        100%;
+
+    margin-top:
+        22px;
+
+    height:
+        54px;
+}
+
+
+/* =====================================================
+   ACCESSIBILITY
+===================================================== */
+
+.chapter-input,
+.chapter-notes,
+button {
+
+    min-height:
+        48px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width:600px) {
+
+    body {
+
+        padding:
+            12px;
+
+        background-position:
+            center center;
+    }
+
+
+    .glass-card {
+
+        padding:
+            18px;
+
+
+        border-radius:
+            26px;
+    }
+
+
+    .dashboard-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .backup-actions {
+
+        flex-direction:
+            column;
+    }
+
+
+    .action-button {
+
+        width:
+            100%;
+    }
+
+
+    .chapter-modal-card {
+
+        padding:
+            22px;
+
+        border-radius:
+            28px 28px 18px 18px;
+    }
+}
+
+
+/* =====================================================
+   DESKTOP
+===================================================== */
+
+@media (min-width:700px) {
+
+    .chapter-modal {
+
+        align-items:
+            center;
+    }
+
+
+    .chapter-modal-card {
+
+        border-radius:
+            32px;
+    }
+}
+
+
+@media (min-width:768px) {
+
+    .dashboard-grid {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+}
+
+/* =====================================================
+   FAVORITE VERSES
+   ===================================================== */
+
+.favorite-verses-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 10px 0 16px;
+}
+
+
+.favorite-verse-item {
+    position: relative;
+
+    padding: 14px 16px;
+
+    border-radius: 16px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.12);
+
+    overflow: hidden;
+}
+
+
+.favorite-verse-item strong {
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 0.95rem;
+
+    font-weight: 700;
+}
+
+
+.favorite-verse-item p {
+    margin: 0 0 12px;
+
+    line-height: 1.55;
+
+    font-size: 0.9rem;
+
+    opacity: 0.78;
+}
+
+
+.favorite-verse-item .action-button {
+    width: auto;
+
+    min-height: 34px;
+
+    padding: 7px 12px;
+
+    font-size: 0.8rem;
+}
+
+
+.favorite-verses-empty {
+    margin: 8px 0 14px;
+
+    padding: 12px 14px;
+
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px dashed rgba(255, 255, 255, 0.14);
+
+    font-size: 0.85rem;
+
+    opacity: 0.65;
+}
+
+
+.favorite-verse-add {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+
+.favorite-verse-add .chapter-input {
+    width: 100%;
+}
+
+
+.favorite-verse-add .action-button {
+    width: 100%;
+}
+
+
+/* =====================================================
+   LIGHT THEME
+   ===================================================== */
+
+body:not(.dark) .favorite-verse-item {
+    background: rgba(255, 255, 255, 0.45);
+
+    border-color: rgba(0, 0, 0, 0.08);
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+
+body:not(.dark) .favorite-verses-empty {
+    background: rgba(255, 255, 255, 0.35);
+
+    border-color: rgba(0, 0, 0, 0.12);
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+    .favorite-verse-item {
+        padding: 13px 14px;
+    }
+
+
+    .favorite-verse-item strong {
+        font-size: 0.9rem;
+    }
+
+
+    .favorite-verse-item p {
+        font-size: 0.85rem;
+    }
+
+
+    .favorite-verse-add {
+        gap: 8px;
+    }
+
+}
+
+/* =====================================================
+   STEP 10 — CHAPTER MODAL SCROLL FIX
+   ===================================================== */
+
+.chapter-modal {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding: 24px;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+
+.chapter-modal-card {
+    width: min(620px, 100%);
+
+    max-height: calc(100vh - 48px);
+
+    margin: 0 auto;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    overscroll-behavior: contain;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+
+/* Keep the modal usable on smaller screens */
+
+@media (max-width: 600px) {
+
+    .chapter-modal {
+        padding: 12px;
+    }
+
+
+    .chapter-modal-card {
+        max-height: calc(100vh - 24px);
+
+        border-radius: 22px;
+    }
+
+
+
+    /* =====================================================
+   STEP 11 — GLASS SCROLLBAR
+   ===================================================== */
+
+    /* Chapter modal scrollbar */
+    .chapter-modal,
+    .chapter-modal-card {
+
+        scrollbar-width: thin;
+
+        scrollbar-color:
+            rgba(255, 255, 255, 0.18) transparent;
+    }
+
+
+    /* Chrome / Edge / Safari */
+    .chapter-modal::-webkit-scrollbar,
+    .chapter-modal-card::-webkit-scrollbar {
+
+        width: 6px;
+    }
+
+
+    .chapter-modal::-webkit-scrollbar-track,
+    .chapter-modal-card::-webkit-scrollbar-track {
+
+        background: transparent;
+    }
+
+
+    .chapter-modal::-webkit-scrollbar-thumb,
+    .chapter-modal-card::-webkit-scrollbar-thumb {
+
+        background: rgba(255, 255, 255, 0.16);
+
+        border-radius: 999px;
+
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+
+    /* Slightly visible while hovering */
+    .chapter-modal::-webkit-scrollbar-thumb:hover,
+    .chapter-modal-card::-webkit-scrollbar-thumb:hover {
+
+        background: rgba(255, 255, 255, 0.28);
+    }
+}
+
+/* =====================================================
+   STEP 12 — GLASS CHAPTER MODAL
+   ===================================================== */
+
+.chapter-modal-card {
+
+    background:
+        linear-gradient(135deg,
+            rgba(255, 255, 255, 0.12),
+            rgba(255, 255, 255, 0.045));
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    box-shadow:
+        0 24px 80px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(30px) saturate(140%);
+    -webkit-backdrop-filter: blur(30px) saturate(140%);
+}
+
+
+/* Favorite verse item */
+
+.favorite-verse-item {
+
+    background:
+        rgba(255, 255, 255, 0.055);
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    border-radius: 18px;
+
+    padding: 14px;
+
+    margin-bottom: 12px;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+
+/* Passage field */
+
+.favorite-passage-input {
+
+    background:
+        rgba(0, 0, 0, 0.16) !important;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.10) !important;
+
+    color:
+        inherit !important;
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+}
+
+
+/* Passage field when selected */
+
+.favorite-passage-input:focus {
+
+    outline: none;
+
+    border-color:
+        rgba(255, 255, 255, 0.30) !important;
+
+    box-shadow:
+        0 0 0 3px rgba(255, 255, 255, 0.06);
+}
+
+/* =====================================================
+   STEP 13 — TRANSPARENT FAVORITE VERSE SCROLLBAR
+   ===================================================== */
+
+.chapter-modal-card {
+    scrollbar-color: transparent transparent;
+}
+
+
+/* Chrome / Edge / Safari */
+
+.chapter-modal-card::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chapter-modal-card::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chapter-modal-card::-webkit-scrollbar-thumb {
+    background: transparent;
+    border: none;
+}
+
+
+/* Show only a very subtle glass indicator while scrolling/hovering */
+
+.chapter-modal-card:hover::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.10);
+}
+
+.chapter-modal-card::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.16);
+}
+
+/* =====================================================
+   STEP 14 — FAVORITE VERSE GLASS ITEMS
+   ===================================================== */
+
+.favorite-verse-item {
+
+    position: relative;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.10);
+
+    border-radius: 18px;
+
+    padding: 16px;
+
+    margin-bottom: 14px;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        0 8px 24px rgba(0, 0, 0, 0.08);
+
+    backdrop-filter:
+        blur(14px);
+
+    -webkit-backdrop-filter:
+        blur(14px);
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* Slight glass response when hovering */
+
+.favorite-verse-item:hover {
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    border-color:
+        rgba(255, 255, 255, 0.16);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* Last verse does not need extra bottom space */
+
+.favorite-verse-item:last-child {
+
+    margin-bottom: 0;
+}
+
+/* =====================================================
+   STEP 15 — GLASS FAVORITE VERSE INPUT
+   ===================================================== */
+
+#favoriteVerse {
+
+    width: 100%;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 14px;
+
+    color: inherit;
+
+    padding: 12px 14px;
+
+    outline: none;
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* Placeholder */
+
+#favoriteVerse::placeholder {
+
+    color:
+        currentColor;
+
+    opacity: 0.45;
+}
+
+
+/* When typing */
+
+#favoriteVerse:focus {
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    border-color:
+        rgba(255, 255, 255, 0.25);
+
+    box-shadow:
+        0 0 0 3px rgba(255, 255, 255, 0.055),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* =====================================================
+   STEP 16 — GLASS FAVORITE VERSE PASSAGE
+   ===================================================== */
+
+.favorite-passage-input {
+
+    width: 100%;
+
+    min-height: 90px;
+
+    background:
+        rgba(255, 255, 255, 0.045) !important;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12) !important;
+
+    border-radius: 14px;
+
+    color: inherit !important;
+
+    padding: 12px 14px;
+
+    outline: none;
+
+    resize: vertical;
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* Passage placeholder */
+
+.favorite-passage-input::placeholder {
+
+    color:
+        currentColor;
+
+    opacity: 0.42;
+}
+
+
+/* Passage box when typing */
+
+.favorite-passage-input:focus {
+
+    background:
+        rgba(255, 255, 255, 0.07) !important;
+
+    border-color:
+        rgba(255, 255, 255, 0.25) !important;
+
+    box-shadow:
+        0 0 0 3px rgba(255, 255, 255, 0.055),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+
+/* Glass scrollbar inside passage */
+
+.favorite-passage-input {
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        transparent transparent;
+}
+
+
+.favorite-passage-input::-webkit-scrollbar {
+
+    width: 5px;
+}
+
+
+.favorite-passage-input::-webkit-scrollbar-track {
+
+    background: transparent;
+}
+
+
+.favorite-passage-input::-webkit-scrollbar-thumb {
+
+    background: transparent;
+
+    border-radius: 999px;
+}
+
+
+.favorite-passage-input:hover::-webkit-scrollbar-thumb {
+
+    background:
+        rgba(255, 255, 255, 0.10);
+}
+
+/* =====================================================
+   STEP 17 — CHAPTER MODAL SAVE BUTTON
+   ===================================================== */
+
+#saveChapterDetails {
+
+    width: 100%;
+
+    min-height: 48px;
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+
+    border-radius: 15px;
+
+    background:
+        rgba(255, 255, 255, 0.10);
+
+    color: inherit;
+
+    font-weight: 600;
+
+    letter-spacing: 0.01em;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.10),
+        0 8px 24px rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease,
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+
+/* Hover */
+
+#saveChapterDetails:hover {
+
+    background:
+        rgba(255, 255, 255, 0.16);
+
+    border-color:
+        rgba(255, 255, 255, 0.24);
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 10px 28px rgba(0, 0, 0, 0.16);
+}
+
+
+/* Pressed */
+
+#saveChapterDetails:active {
+
+    transform:
+        translateY(1px);
+
+    background:
+        rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+/* Keyboard focus */
+
+#saveChapterDetails:focus-visible {
+
+    outline: none;
+
+    box-shadow:
+        0 0 0 3px rgba(255, 255, 255, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* =====================================================
+   STEP 18 — CHAPTER MODAL CLOSE BUTTON
+   ===================================================== */
+
+#closeChapterModal {
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    color: inherit;
+
+    font-size: 18px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 6px 18px rgba(0, 0, 0, 0.10);
+
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease,
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+
+/* Hover */
+
+#closeChapterModal:hover {
+
+    background:
+        rgba(255, 255, 255, 0.13);
+
+    border-color:
+        rgba(255, 255, 255, 0.20);
+
+    transform:
+        scale(1.05);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.10),
+        0 8px 22px rgba(0, 0, 0, 0.14);
+}
+
+
+/* Pressed */
+
+#closeChapterModal:active {
+
+    transform:
+        scale(0.94);
+
+    background:
+        rgba(255, 255, 255, 0.09);
+}
+
+
+/* Keyboard focus */
+
+#closeChapterModal:focus-visible {
+
+    outline: none;
+
+    box-shadow:
+        0 0 0 3px rgba(255, 255, 255, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+/* =====================================================
+   STEP 19 — CHAPTER MODAL GLASS BACKDROP
+   ===================================================== */
+
+.chapter-modal {
+
+    background:
+        rgba(0, 0, 0, 0.28);
+
+    backdrop-filter:
+        blur(18px) saturate(120%);
+
+    -webkit-backdrop-filter:
+        blur(18px) saturate(120%);
+
+    transition:
+        background 0.25s ease;
+}
+
+
+/* Dark theme */
+
+body.dark .chapter-modal {
+
+    background:
+        rgba(0, 0, 0, 0.38);
+}
+
+
+/* Light theme */
+
+body:not(.dark) .chapter-modal {
+
+    background:
+        rgba(255, 255, 255, 0.18);
+}
+
+/* =====================================================
+   STEP 20 — FAVORITE VERSE LIST SPACING
+   ===================================================== */
+
+.favorite-verse-item {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    padding: 16px 17px;
+
+    margin-bottom: 14px;
+
+    overflow: hidden;
+}
+
+
+/* Verse reference */
+
+.favorite-verse-item strong {
+
+    display: block;
+
+    font-size: 0.98rem;
+
+    line-height: 1.4;
+
+    letter-spacing: 0.01em;
+}
+
+
+/* Passage area inside the verse card */
+
+.favorite-verse-item .favorite-passage-input {
+
+    margin-top: 2px;
+}
+
+
+/* Keep the last card clean */
+
+.favorite-verse-item:last-child {
+
+    margin-bottom: 0;
+}
+
+
+/* Smaller screens */
+
+@media (max-width: 600px) {
+
+    .favorite-verse-item {
+
+        padding: 14px;
+
+        gap: 9px;
+
+        border-radius: 16px;
+    }
+
+}
+
+/* =====================================================
+   STEP 21 — READING PLAN GLASS CHAPTER CARDS
+   ===================================================== */
+
+.chapter-card {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 16px;
+
+    width: 100%;
+
+    padding: 15px 16px;
+
+    margin-bottom: 10px;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.10);
+
+    border-radius: 17px;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.055),
+        0 6px 20px rgba(0, 0, 0, 0.06);
+
+    backdrop-filter:
+        blur(14px);
+
+    -webkit-backdrop-filter:
+        blur(14px);
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* Hover */
+
+.chapter-card:hover {
+
+    background:
+        rgba(255, 255, 255, 0.075);
+
+    border-color:
+        rgba(255, 255, 255, 0.16);
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.07),
+        0 10px 26px rgba(0, 0, 0, 0.10);
+}
+
+
+/* Pressed */
+
+.chapter-card:active {
+
+    transform:
+        translateY(0);
+}
+
+
+/* Chapter information */
+
+.chapter-card>div:first-child {
+
+    min-width: 0;
+
+    flex: 1;
+}
+
+
+/* Chapter title */
+
+.chapter-card strong {
+
+    display: block;
+
+    font-size: 0.98rem;
+
+    line-height: 1.4;
+}
+
+
+/* Chapter secondary information */
+
+.chapter-card small {
+
+    opacity: 0.58;
+
+    font-size: 0.82rem;
+
+    line-height: 1.5;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .chapter-card {
+
+        padding: 14px;
+
+        gap: 12px;
+
+        border-radius: 15px;
+    }
+
+}
+
+/* =====================================================
+   STEP 22 — GLASS READING PLAN CHECKBOX
+   ===================================================== */
+
+.chapter-card input[type="checkbox"] {
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 22px;
+    height: 22px;
+
+    flex: 0 0 22px;
+
+    margin: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.22);
+
+    border-radius: 7px;
+
+    background:
+        rgba(255, 255, 255, 0.055);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    cursor: pointer;
+
+    position: relative;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* Hover */
+
+.chapter-card input[type="checkbox"]:hover {
+
+    background:
+        rgba(255, 255, 255, 0.10);
+
+    border-color:
+        rgba(255, 255, 255, 0.32);
+
+    transform:
+        scale(1.05);
+}
+
+
+/* Checked */
+
+.chapter-card input[type="checkbox"]:checked {
+
+    background:
+        rgba(255, 255, 255, 0.18);
+
+    border-color:
+        rgba(255, 255, 255, 0.35);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+/* Check mark */
+
+.chapter-card input[type="checkbox"]:checked::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 6px;
+    top: 2px;
+
+    width: 6px;
+    height: 11px;
+
+    border:
+        solid currentColor;
+
+    border-width:
+        0 2px 2px 0;
+
+    transform:
+        rotate(45deg);
+}
+
+
+/* Pressed */
+
+.chapter-card input[type="checkbox"]:active {
+
+    transform:
+        scale(0.92);
+}
+
+
+/* Keyboard focus */
+
+.chapter-card input[type="checkbox"]:focus-visible {
+
+    outline: none;
+
+    box-shadow:
+        0 0 0 3px rgba(255, 255, 255, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .chapter-card input[type="checkbox"] {
+
+        width: 21px;
+        height: 21px;
+
+        flex-basis: 21px;
+
+        border-radius: 6px;
+    }
+
+}
+
+/* =====================================================
+   STEP 23 — COMPLETED CHAPTER GLASS STATE
+   ===================================================== */
+
+.chapter-card.completed {
+
+    background:
+        rgba(255, 255, 255, 0.075);
+
+    border-color:
+        rgba(255, 255, 255, 0.16);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 7px 22px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Completed chapter title */
+
+.chapter-card.completed strong {
+
+    opacity: 0.82;
+
+}
+
+
+/* Completed secondary information */
+
+.chapter-card.completed small {
+
+    opacity: 0.62;
+
+}
+
+
+/* Completed checkbox */
+
+.chapter-card.completed input[type="checkbox"]:checked {
+
+    background:
+        rgba(255, 255, 255, 0.20);
+
+    border-color:
+        rgba(255, 255, 255, 0.38);
+
+}
+
+
+/* Completed hover */
+
+.chapter-card.completed:hover {
+
+    background:
+        rgba(255, 255, 255, 0.095);
+
+    border-color:
+        rgba(255, 255, 255, 0.20);
+
+}
+
+/* =====================================================
+   STEP 24 — READING PLAN BOOK HEADINGS
+   ===================================================== */
+
+.book-card>h3 {
+
+    margin: 0 0 14px 2px;
+
+    font-size: 1.15rem;
+
+    font-weight: 650;
+
+    letter-spacing: 0.01em;
+
+    line-height: 1.3;
+
+    opacity: 0.92;
+}
+
+
+/* Space between book sections */
+
+.book-card {
+
+    margin-bottom: 24px;
+}
+
+
+/* Last book needs no extra space */
+
+.book-card:last-child {
+
+    margin-bottom: 0;
+}
+
+
+/* Small visual divider under the book name */
+
+.book-card>h3::after {
+
+    content: "";
+
+    display: block;
+
+    width: 34px;
+
+    height: 2px;
+
+    margin-top: 7px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.18);
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .book-card>h3 {
+
+        margin-bottom: 12px;
+
+        font-size: 1.08rem;
+    }
+
+}
+
+/* =====================================================
+   STEP 25 — CHAPTER CARD TEXT & SPACING
+   ===================================================== */
+
+.chapter-card>div:first-child {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 2px;
+
+}
+
+
+/* Chapter title */
+
+.chapter-card strong {
+
+    font-size: 0.98rem;
+
+    font-weight: 600;
+
+    line-height: 1.35;
+
+    letter-spacing: 0.005em;
+}
+
+
+/* Secondary information */
+
+.chapter-card small {
+
+    display: inline-block;
+
+    font-size: 0.78rem;
+
+    line-height: 1.4;
+
+    opacity: 0.58;
+}
+
+
+/* Keep the checkbox vertically centered */
+
+.chapter-card input[type="checkbox"] {
+
+    align-self: center;
+
+    flex-shrink: 0;
+}
+
+
+/* Slightly more comfortable spacing */
+
+.chapter-card {
+
+    min-height: 58px;
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .chapter-card {
+
+        min-height: 55px;
+
+    }
+
+    .chapter-card strong {
+
+        font-size: 0.94rem;
+
+    }
+
+    .chapter-card small {
+
+        font-size: 0.76rem;
+
+    }
+
+}
+
+/* =====================================================
+   STEP 26 — READING PLAN CONTAINER SPACING
+   ===================================================== */
+
+.reading-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 22px;
+
+    width: 100%;
+}
+
+
+/* Each book group */
+
+.reading-list .book-card {
+
+    width: 100%;
+
+    margin: 0;
+
+}
+
+
+/* Chapter cards inside each book */
+
+.reading-list .chapter-card {
+
+    margin-bottom: 9px;
+
+}
+
+
+/* Remove extra space from the final chapter */
+
+.reading-list .chapter-card:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+/* Search result message */
+
+.reading-list>.book-card:only-child {
+
+    margin-bottom: 0;
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .reading-list {
+
+        gap: 18px;
+
+    }
+
+    .reading-list .chapter-card {
+
+        margin-bottom: 8px;
+
+    }
+
+}
+
+/* =====================================================
+   STEP 27 — READING PLAN VISUAL SEPARATION
+===================================================== */
+
+/* Book group */
+.reading-list .book-card {
+
+    position: relative;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+}
+
+/* Book title area */
+.reading-list .book-card h3 {
+
+    margin-bottom: 14px;
+
+}
+
+/* Chapter cards */
+.reading-list .chapter-card {
+
+    position: relative;
+
+    padding: 14px 16px;
+
+    border-radius: 14px;
+
+}
+
+/* Keep chapter cards visually separated */
+.reading-list .chapter-card+.chapter-card {
+
+    margin-top: 9px;
+
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .reading-list .book-card {
+
+        padding: 14px;
+
+        border-radius: 16px;
+
+    }
+
+    .reading-list .book-card h3 {
+
+        margin-bottom: 12px;
+
+    }
+
+    .reading-list .chapter-card {
+
+        padding: 13px 14px;
+
+        border-radius: 13px;
+
+    }
+
+    .reading-list .chapter-card+.chapter-card {
+
+        margin-top: 8px;
+
+    }
+
+}
+
+/* =====================================================
+   STEP 29 — READING PLAN CHAPTER HOVER EFFECT
+===================================================== */
+
+/* Chapter card interaction */
+
+.reading-list .chapter-card {
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+/* Desktop hover effect */
+
+@media (min-width: 601px) {
+
+    .reading-list .chapter-card:hover {
+
+        transform: translateY(-2px);
+
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10);
+
+    }
+
+}
+
+/* Keep mobile cards stable */
+
+@media (max-width: 600px) {
+
+    .reading-list .chapter-card {
+
+        transform: none;
+
+    }
+
+}
+
+/* =====================================================
+   STEP 30 — CHAPTER CARD TEXT ALIGNMENT
+===================================================== */
+
+/* Keep chapter card content organized */
+
+.reading-list .chapter-card {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 14px;
+
+}
+
+/* Prevent text from overflowing */
+
+.reading-list .chapter-card>* {
+
+    min-width: 0;
+
+}
+
+/* Chapter text */
+
+.reading-list .chapter-card .chapter-title {
+
+    flex: 1;
+
+    min-width: 0;
+
+    line-height: 1.4;
+
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .reading-list .chapter-card {
+
+        gap: 10px;
+
+    }
+
+    .reading-list .chapter-card .chapter-title {
+
+        line-height: 1.35;
+
+    }
+
+}
+
+/* =====================================================
+   STEP 31 — BOOK CARD HEADER SEPARATION
+===================================================== */
+
+/* Add breathing room below the book heading */
+
+.reading-list .book-card h3 {
+
+    margin-bottom: 16px;
+
+    line-height: 1.3;
+
+}
+
+/* Keep the chapter list visually separated */
+
+.reading-list .book-card .chapter-card:first-of-type {
+
+    margin-top: 2px;
+
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .reading-list .book-card h3 {
+
+        margin-bottom: 13px;
+
+    }
+
+    .reading-list .book-card .chapter-card:first-of-type {
+
+        margin-top: 1px;
+
+    }
+
+}
+
+/* =====================================================
+   STEP 32 — READING PLAN BOOK CARD WIDTH
+===================================================== */
+
+/* Keep every book card aligned with the reading list */
+
+.reading-list .book-card {
+
+    width: 100%;
+
+    max-width: 100%;
+
+    box-sizing: border-box;
+
+}
+
+/* Keep chapter cards inside the book card */
+
+.reading-list .book-card .chapter-card {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .reading-list .book-card {
+
+        width: 100%;
+
+        max-width: 100%;
+
+    }
+
+    .reading-list .book-card .chapter-card {
+
+        width: 100%;
+
+    }
+
+}
