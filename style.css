@@ -3169,23 +3169,7 @@ body:not(.dark) .chapter-modal {
 
 /* =====================================================
    STEP 15B — LIGHT MODE GLASS BALANCE
-   DARKER VERSION
    ===================================================== */
-
-/* ❤️ Favorite Verses */
-body:not(.dark) .favorite-verse-item {
-    background: rgba(210, 210, 210, 0.38);
-    border-color: rgba(0, 0, 0, 0.10);
-    box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
-/* Empty Favorite Verses */
-body:not(.dark) .favorite-verses-empty {
-    background: rgba(210, 210, 210, 0.32);
-    border-color: rgba(0, 0, 0, 0.12);
-}
-
 
 /* 📖 Reading Plan */
 body:not(.dark) .chapter-card {
@@ -3197,7 +3181,7 @@ body:not(.dark) .chapter-card {
 }
 
 
-/* Reading Plan — Hover */
+/* 📖 Reading Plan — Hover */
 body:not(.dark) .chapter-card:hover {
     background: rgba(200, 200, 200, 0.42);
     border-color: rgba(0, 0, 0, 0.14);
