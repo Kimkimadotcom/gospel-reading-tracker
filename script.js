@@ -715,7 +715,7 @@ async function loadBiblePlan() {
 
         const response =
             await fetch(
-                "data/bible-plan.json",
+                "bible-plan.json",
                 {
                     cache: "no-cache"
                 }
