@@ -3169,51 +3169,57 @@ body:not(.dark) .chapter-modal {
 
 /* =====================================================
    STEP 15B — LIGHT MODE GLASS BALANCE
+   DARKER VERSION
    ===================================================== */
 
-/* Favorite Verses — softer light glass */
+/* ❤️ Favorite Verses */
 body:not(.dark) .favorite-verse-item {
-    background: rgba(235, 235, 235, 0.28);
-    border-color: rgba(0, 0, 0, 0.08);
-    box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.06);
-}
-
-/* Empty Favorite Verses message */
-body:not(.dark) .favorite-verses-empty {
-    background: rgba(235, 235, 235, 0.22);
+    background: rgba(210, 210, 210, 0.38);
     border-color: rgba(0, 0, 0, 0.10);
-}
-
-/* Reading Plan chapter cards — softer light glass */
-body:not(.dark) .chapter-card {
-    background: rgba(235, 235, 235, 0.24);
-    border-color: rgba(0, 0, 0, 0.08);
     box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.45),
-        0 6px 20px rgba(0, 0, 0, 0.06);
+        0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
-/* Reading Plan hover */
+/* Empty Favorite Verses */
+body:not(.dark) .favorite-verses-empty {
+    background: rgba(210, 210, 210, 0.32);
+    border-color: rgba(0, 0, 0, 0.12);
+}
+
+
+/* 📖 Reading Plan */
+body:not(.dark) .chapter-card {
+    background: rgba(210, 210, 210, 0.34);
+    border-color: rgba(0, 0, 0, 0.10);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.40),
+        0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Reading Plan — Hover */
 body:not(.dark) .chapter-card:hover {
-    background: rgba(225, 225, 225, 0.32);
-    border-color: rgba(0, 0, 0, 0.12);
+    background: rgba(200, 200, 200, 0.42);
+    border-color: rgba(0, 0, 0, 0.14);
 }
 
-/* Completed Reading Plan chapter */
+
+/* ✅ Completed chapters */
 body:not(.dark) .chapter-card.completed {
-    background: rgba(225, 225, 225, 0.34);
-    border-color: rgba(0, 0, 0, 0.12);
+    background: rgba(195, 195, 195, 0.44);
+    border-color: rgba(0, 0, 0, 0.14);
 }
 
-/* Reading Plan checkbox */
+
+/* ☑️ Reading Plan checkboxes */
 body:not(.dark) .chapter-card input[type="checkbox"] {
-    background: rgba(220, 220, 220, 0.30);
-    border-color: rgba(0, 0, 0, 0.16);
+    background: rgba(195, 195, 195, 0.42);
+    border-color: rgba(0, 0, 0, 0.18);
 }
 
-/* Checked checkbox */
+
+/* ☑️ Checked checkbox */
 body:not(.dark) .chapter-card input[type="checkbox"]:checked {
-    background: rgba(200, 200, 200, 0.40);
-    border-color: rgba(0, 0, 0, 0.20);
+    background: rgba(175, 175, 175, 0.50);
+    border-color: rgba(0, 0, 0, 0.22);
 }
