@@ -257,26 +257,25 @@ const STORAGE_KEY =
 const BOOK_METADATA_FILES = [
     {
         name: "John",
-        file: "data/books/john.json"
+        file: "john.json"
     },
     {
         name: "Mark",
-        file: "data/books/mark.json"
+        file: "mark.json"
     },
     {
         name: "Matthew",
-        file: "data/books/matthew.json"
+        file: "matthew.json"
     },
     {
         name: "Luke",
-        file: "data/books/luke.json"
+        file: "luke.json"
     },
     {
         name: "Acts",
-        file: "data/books/acts.json"
+        file: "acts.json"
     }
 ];
-
 
 /* =====================================================
    READING PLAN
