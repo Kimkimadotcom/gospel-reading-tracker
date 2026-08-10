@@ -3164,3 +3164,56 @@ body:not(.dark) .chapter-modal {
     }
 
 }
+
+
+
+/* =====================================================
+   STEP 15B — LIGHT MODE GLASS BALANCE
+   ===================================================== */
+
+/* Favorite Verses — softer light glass */
+body:not(.dark) .favorite-verse-item {
+    background: rgba(235, 235, 235, 0.28);
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Empty Favorite Verses message */
+body:not(.dark) .favorite-verses-empty {
+    background: rgba(235, 235, 235, 0.22);
+    border-color: rgba(0, 0, 0, 0.10);
+}
+
+/* Reading Plan chapter cards — softer light glass */
+body:not(.dark) .chapter-card {
+    background: rgba(235, 235, 235, 0.24);
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.45),
+        0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Reading Plan hover */
+body:not(.dark) .chapter-card:hover {
+    background: rgba(225, 225, 225, 0.32);
+    border-color: rgba(0, 0, 0, 0.12);
+}
+
+/* Completed Reading Plan chapter */
+body:not(.dark) .chapter-card.completed {
+    background: rgba(225, 225, 225, 0.34);
+    border-color: rgba(0, 0, 0, 0.12);
+}
+
+/* Reading Plan checkbox */
+body:not(.dark) .chapter-card input[type="checkbox"] {
+    background: rgba(220, 220, 220, 0.30);
+    border-color: rgba(0, 0, 0, 0.16);
+}
+
+/* Checked checkbox */
+body:not(.dark) .chapter-card input[type="checkbox"]:checked {
+    background: rgba(200, 200, 200, 0.40);
+    border-color: rgba(0, 0, 0, 0.20);
+}
